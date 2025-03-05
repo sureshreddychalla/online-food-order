@@ -1,0 +1,99 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Body Styling */
+  body {
+    background: url('../assests/images/login.jpg') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  /* Login Container */
+  .login-container {
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    width: 350px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    animation: fadeInUp 1s ease-in-out;
+  }
+  
+  /* Form Inputs */
+  input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* Input Focus Effect */
+  input:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.1);
+    border-left: 4px solid #1e90ff;
+  }
+  
+  /* Button */
+  .but {
+    width: 100%;
+    background-color: black;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .but:hover {
+    background-color: #333;
+    transform: scale(1.05);
+  }
+  
+  /* Signup Link */
+  p {
+    margin-top: 15px;
+    animation: fadeIn 1.5s ease-in-out;
+  }
+  
+  p a {
+    color: #1e90ff;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  p a:hover {
+    text-decoration: underline;
+    color: #ff5733;
+  }
+  
+  /* 📌 Mobile Styles */
+  @media (max-width: 480px) {
+    .login-container {
+        width: 90%;
+    }
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes fadeInUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/veg.css">
+    <!-- <script src="../js/veg.js"></script> -->
+    <title>Veg- Items</title>
+</head>
+<body>
+    <nav>
+        <div class="logo">Tasty Talks</div>
+        <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="biriyani.html">Biryani</a></li>
+            <li><a href="nonveg.html">Non Veg Items</a></li>   
+            <li><a href="desserts.html">Desserts</a></li>  
+            <li><a href="cart.html">Cart</a></li>     
+        </ul>
+    </nav>
+    <h1>Our Special Veg Dishes</h1>
+    <a href="cart.html" class="cart-button">Go to Cart</a>
+    <div class="container">
+        <div class="section" data-name="Veg Biryani" data-price="150">
+            <img src="../assests/images/biriyani/vegbiryani.jpeg" alt="Veg Biryani">
+            <h2>Veg Biryani</h2>
+            <p class="price">price 150</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+
+        <div class="section" data-name="Paneer Butter Masala" data-price="200">
+            <img src="../assests/images/veg/Matar Paneer.jpeg" alt="Paneer Butter Masala">
+            <h2>Paneer Butter Masala</h2>
+            <p class="price">price 200</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+
+        <div class="section" data-name="Dal Tadka" data-price="120">
+            <img src="../assests/images/veg/Dal Tadka.jpg" alt="Dal Tadka">
+            <h2>Dal Tadka</h2>
+            <p class="price">price 120</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+
+        <div class="section" data-name="Aloo Gobi" data-price="130">
+            <img src="../assests/images/veg/Aloo Gobi.jpeg" alt="Aloo Gobi">
+            <h2>Aloo Gobi</h2>
+            <p class="price">price 130</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+
+        <div class="section" data-name="Chole Bhature" data-price="180">
+            <img src="../assests/images/veg/Chole Bhature.jpg" alt="Chole Bhature">
+            <h2>Chole Bhature</h2>
+            <p class="price">price 180</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+
+        <div class="section" data-name="Palak Paneer" data-price="190">
+            <img src="../assests/images/veg/Palak Paneer.jpeg" alt="Palak Paneer">
+            <h2>Palak Paneer</h2>
+            <p class="price">price 190</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+
+        <div class="section" data-name="Mix Veg" data-price="140">
+            <img src="../assests/images/veg/Mix Veg.jpeg" alt="Mix Veg">
+            <h2>Mix Veg</h2>
+            <p class="price">price 140</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+
+        <div class="section" data-name="Matar Paneer" data-price="160">
+            <img src="../assests/images/veg/Matar Paneer.jpeg" alt="Matar Paneer">
+            <h2>Matar Paneer</h2>
+            <p class="price">price 160</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+
+        <div class="section" data-name="Vegetable Korma" data-price="170">
+            <img src="../assests/images/veg/Vegetable Korma.jpeg" alt="Vegetable Korma">
+            <h2>Vegetable Korma</h2>
+            <p class="price">price 170</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+
+        <div class="section" data-name="Mushroom Masala" data-price="200">
+            <img src="../assests/images/veg/Mushroom Masala.jpeg" alt="Mushroom Masala">
+            <h2>Mushroom Masala</h2>
+            <p class="price">price 200</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+
+        <div class="section" data-name="Stuffed Capsicum" data-price="150">
+            <img src="../assests/images/veg/Stuffed Capsicum.jpeg" alt="Stuffed Capsicum">
+            <h2>Stuffed Capsicum</h2>
+            <p class="price">price 150</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+
+        <div class="section" data-name="Kachori" data-price="100">
+            <img src="../assests/images/veg/Kachori.jpeg" alt="Kachori">
+            <h2>Kachori</h2>
+            <p class="price">price 100</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const buttons = document.querySelectorAll(".add-to-cart");
+            buttons.forEach(button => {
+                button.addEventListener("click", function () {
+                    const section = this.parentElement;
+                    const itemName = section.getAttribute("data-name");
+                    const itemPrice = section.getAttribute("data-price");
+                    
+                    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+                    let item = cart.find(i => i.name === itemName);
+                    
+                    if (item) {
+                        item.quantity += 1;
+                    } else {
+                        cart.push({ name: itemName, price: itemPrice, quantity: 1 });
+                    }
+                    
+                    localStorage.setItem("cart", JSON.stringify(cart));
+                    alert("Added to cart!");
+                });
+            });
+        });
+    </script>
+</body>    
+</html>
