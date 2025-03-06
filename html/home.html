@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Menu</title>
+    <link rel="stylesheet" href="../css/home.css">
+</head>
+<body>
+
+    <!-- Background Overlay -->
+    <div class="overlay"></div>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo">Tasty Talks</div>
+        <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="./signup.html">Signup</a></li>
+            <li><a href="login.html">Login</a></li>          
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>Delicious Food Awaits</h1>
+        <p>Explore our menu and enjoy mouth-watering dishes.</p>
+    </div>
+
+    <!-- Menu Sections -->
+    <div class="menu-container">
+        <div class="menu-item" onclick="window.location.href='./restaruant.html';">
+            <img src="../assests/images/restaurant.jpg" alt="Restaurant">
+            <h2>Restaurant</h2>
+            <a href="./restaruant.html">View Menu</a>
+        </div>
+
+        <div class="menu-item" onclick="window.location.href='./liveevents.html';">
+            <img src="../assests/images/live.jpg" alt="liveevents">
+            <h2>Live Events</h2>
+            <a href="./liveevents.html">View Menu</a>
+        </div>
+
+        <div class="menu-item" onclick="window.location.href='./restaruant.html';">
+            <img src="../assests/images/dining.jpg" alt="Dining">
+            <h2>Dining</h2>
+            <a href="./restaruant.html">View Menu</a>
+        </div>
+        <div class="menu-item" onclick="window.location.href='./restaruant.html';">
+            <img src="../assests/images/online.jpg" alt="Dining">
+            <h2>Online Order</h2>
+            <a href="./restaruant.html">View Menu</a>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2025 Our Restaurant | All Rights Reserved
+        &copy; this website designed by challa sureshreddy 
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
+
+    menuToggle.addEventListener("click", function () {
+        navLinks.classList.toggle("active");
+    });
+});
+    </script>
+</body>
+</html>

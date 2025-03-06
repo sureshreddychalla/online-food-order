@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Login</title>
+    <link rel="stylesheet" href="../css/login.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">Tasty Talks</div>
+        <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <!-- <li><a href="profile.html">Profile</a></li> -->
+            <li><a href="./signup.html">Signup</a></li>
+            <!-- <li><a href="login.html">Login</a></li> -->
+        </ul>
+    </nav>
+    <div class="login-container">
+        <h2>Login</h2>
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <button class="but" onclick="login()">Login</button>
+        <p>Don't have an account? <a href="./signup.html">Sign up</a></p>
+    </div>
+    <script>
+        function login() {
+            // Redirect to Profile Page after login
+            window.location.href = "./profile.html";
+        }
+    </script>
+</body>
+</html>
