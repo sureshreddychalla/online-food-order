@@ -7,7 +7,13 @@ body {
     padding: 0;
     animation: fadeIn 1s ease-in-out;
 }
-
+/* Mobile Menu Toggle */
+.menu-toggle {
+    display: none;
+    font-size: 28px;
+    color: white;
+    cursor: pointer;
+}
 /* Navigation Bar */
 nav {
     display: flex;
@@ -229,4 +235,5 @@ button:hover {
         font-size: 14px;
         padding: 8px 16px;
     }
+    
 }
