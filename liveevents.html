@@ -12,6 +12,7 @@
     <!-- Navigation Bar -->
     <nav>
         <div class="logo">Tasty Talks</div>
+        <div class="menu-toggle">&#9776;</div>
         <ul class="nav-links">
             <li><a href="home.html">Home</a></li>
             <li><a href="menu.html">Menu</a></li>
@@ -55,6 +56,15 @@
             </div>
         </div>
     </section>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
 
+    menuToggle.addEventListener("click", function () {
+        navLinks.classList.toggle("active");
+    });
+});
+</script>
 </body>
 </html>
