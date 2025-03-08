@@ -9,6 +9,13 @@ body {
 }
 
 /* Navigation Bar */
+/* Mobile Menu Toggle */
+.menu-toggle {
+    display: none;
+    font-size: 28px;
+    color: white;
+    cursor: pointer;
+}
 nav {
     display: flex;
     justify-content: space-between;
