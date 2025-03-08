@@ -6,15 +6,13 @@ body {
     margin: 0;
     padding: 0;
     animation: fadeIn 1s ease-in-out;
-    padding-top:70px;
+    padding-top: 70px;
 }
-/* Mobile Menu Toggle */
 .menu-toggle {
     display: none;
     font-size: 28px;
     color: white;
     cursor: pointer;
-    z-index: 1100; 
 }
 /* Navigation Bar */
 nav {
@@ -104,13 +102,14 @@ h1 {
     transition: transform 0.3s ease-in-out;
     opacity: 0;
     animation: slideUp 1s ease-in-out forwards;
+    
+}
+.section {
     position: relative;
     z-index: 500;
 }
-
 .section:hover {
     transform: translateY(-5px);
-    
 }
 
 /* Images */
@@ -221,13 +220,13 @@ button:hover {
         display: none;
         flex-direction: column;
         width: 100%;
-        background: rgba(0, 0, 0, 0.95);
-        position: fixed;
+        background: rgba(0, 0, 0, 0.9);
+        position: absolute;
         top: 60px;
         left: 0;
         text-align: center;
         padding: 15px 0;
-        z-index: 1200;
+        z-index:1200;
     }
 
     .nav-links li {
@@ -246,5 +245,4 @@ button:hover {
         font-size: 14px;
         padding: 8px 16px;
     }
-    
 }
