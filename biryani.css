@@ -113,6 +113,7 @@ h1 {
     transition: transform 0.3s ease-in-out;
     opacity: 0;
     animation: slideUp 1s ease-in-out forwards;
+    position: relative;   
 }
 
 .section:hover {
