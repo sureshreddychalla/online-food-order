@@ -172,13 +172,8 @@ footer {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    /* Mobile Navigation */
-    .menu-toggle {
-        display: block;
-    }
-
     .nav-links {
-        display: none;
+        display: none; /* Hide by default */
         flex-direction: column;
         width: 100%;
         background: rgba(0, 0, 0, 0.9);
@@ -189,15 +184,16 @@ footer {
         padding: 15px 0;
     }
 
-    .nav-links li {
-        margin: 10px 0;
-    }
-
+    /* When active, display the nav links */
     .nav-links.active {
         display: flex;
         animation: fadeIn 0.5s ease-in-out;
     }
-
+    
+    /* Mobile Navigation Button */
+    .menu-toggle {
+        display: block;
+    }
     /* Responsive Hero Section */
     .hero h1 {
         font-size: 35px;
