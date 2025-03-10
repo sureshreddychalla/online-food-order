@@ -14,13 +14,15 @@
     <!-- Navigation Bar -->
     <nav>
         <div class="logo">Tasty Talks</div>
-        <ul class="nav-links">
+        <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+        <ul class="nav-links" id="nav-links">
             <li><a href="home.html">Home</a></li>
             <li><a href="profile.html">Profile</a></li>
-            <li><a href="signup.html">Signup</a></li>
-            <li><a href="login.html">Login</a></li>          
+            <li><a href="login.html">Login</a></li>
+            <li><a href="signup.html">Sign up</a></li>   
+                 
         </ul>
-    </nav>
+</nav>
 
     <!-- Hero Section -->
     <div class="hero">
@@ -62,13 +64,13 @@
     </footer>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-    const menuToggle = document.querySelector(".menu-toggle");
-    const navLinks = document.querySelector(".nav-links");
-
-    menuToggle.addEventListener("click", function () {
-        navLinks.classList.toggle("active");
-    });
-});
+            const menuToggle = document.querySelector(".menu-toggle");
+            const navLinks = document.querySelector(".nav-links");
+        
+            menuToggle.addEventListener("click", function () {
+                navLinks.classList.toggle("active");
+            });
+        });
     </script>
 </body>
 </html>
