@@ -83,24 +83,6 @@ body.menu-open {
 }
 
 
-/* Hero Section */
-.hero {
-    text-align: center;
-    padding: 100px 20px;
-    color: white;
-    margin-top: 80px;
-}
-
-.hero h1 {
-    font-size: 36px;
-    margin-bottom: 10px;
-}
-
-.hero p {
-    font-size: 18px;
-    opacity: 0.8;
-}
-
 /* Events Container */
 .events-container {
     display: grid;
