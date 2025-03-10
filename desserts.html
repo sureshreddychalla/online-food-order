@@ -9,14 +9,17 @@
 <body>
     <nav>
         <div class="logo">Tasty Talks</div>
-        <ul class="nav-links">
+        <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+        <ul class="nav-links" id="nav-links">
             <li><a href="home.html">Home</a></li>
             <li><a href="profile.html">Profile</a></li>
             <li><a href="veg.html">Veg</a></li>
             <li><a href="nonveg.html">Non Veg Items</a></li>   
-            <li><a href="biriyani.html">Biryani's</a></li>       
+            <li><a href="desserts.html">Desserts</a></li>       
         </ul>
     </nav>
+
+
     <h1>🍰 Desserts Menu 🍩</h1>
     <a href="cart.html" class="cart-button">Go to Cart</a>
 
@@ -103,6 +106,40 @@
                 });
             });
         });
+        document.addEventListener("DOMContentLoaded", function () {
+            const menuToggle = document.getElementById("menu-toggle");
+            const navLinks = document.getElementById("nav-links");
+        
+            if (menuToggle && navLinks) {
+                menuToggle.addEventListener("click", function () {
+                    navLinks.classList.toggle("active");
+        
+                    // Animate the menu opening & closing
+                    if (navLinks.classList.contains("active")) {
+                        navLinks.style.maxHeight = navLinks.scrollHeight + "px";
+                    } else {
+                        navLinks.style.maxHeight = "0px";
+                    }
+                });
+        
+                // Close menu when a link is clicked (on mobile)
+                navLinks.querySelectorAll("a").forEach(link => {
+                    link.addEventListener("click", function () {
+                        navLinks.classList.remove("active");
+                        navLinks.style.maxHeight = "0px";
+                    });
+                });
+        
+                // Accessibility: Close menu when pressing Escape key
+                document.addEventListener("keydown", function (event) {
+                    if (event.key === "Escape" && navLinks.classList.contains("active")) {
+                        navLinks.classList.remove("active");
+                        navLinks.style.maxHeight = "0px";
+                    }
+                });
+            }
+    });
+
     </script>
 </body>
 </html>
