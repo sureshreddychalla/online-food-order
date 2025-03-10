@@ -23,52 +23,69 @@ body {
 }
 
 /* Navigation Bar */
+nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 15px 20px;
+    position: relative;
+}
+
 .logo {
     font-size: 24px;
     font-weight: bold;
     color: white;
     text-transform: uppercase;
 }
+
+/* Menu Toggle (Hamburger Icon) */
 .menu-toggle {
     display: block;
     font-size: 28px;
     cursor: pointer;
     color: white;
+    background: none;
+    border: none;
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    z-index: 1100;
 }
 
+/* Navigation Links */
 .nav-links {
     list-style: none;
-    padding: 0;
-    margin: 0;
-    background: rgba(0, 0, 0, 0.9);
+    background: rgba(0, 0, 0, 0.95);
     width: 100%;
     position: absolute;
     top: 60px;
     left: 0;
-    display: none;
     flex-direction: column;
     align-items: center;
     text-align: center;
     overflow: hidden;
-    transition: max-height 0.4s ease-in-out;
+    max-height: 0;
+    transition: max-height 0.5s ease-in-out;
     z-index: 1000; /* Ensures menu is on top */
 }
 
 .nav-links.active {
     display: flex;
-    max-height: 300px; /* Adjust as needed */
-    padding: 10px 0;
+    max-height: 300px; /* Adjust based on menu height */
+    padding: 15px 0;
 }
 
 .nav-links li {
-    margin: 10px 0;
+    margin: 12px 0;
 }
 
 .nav-links a {
     color: white;
     text-decoration: none;
     font-size: 18px;
-    padding: 10px 20px;
+    padding: 12px 20px;
     display: block;
     width: 100%;
 }
@@ -77,73 +94,34 @@ body {
     background-color: #ff6600;
 }
 
-/* Ensures content moves down instead of overlapping */
+/* Close Button (Inside the Menu) */
+.close-menu {
+    display: block;
+    font-size: 26px;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+/* Body Shift Effect */
 body.menu-open {
     padding-top: 250px; /* Adjust based on menu height */
 }
 
-
-/* Events Container */
-.events-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    margin: 40px auto;
-    max-width: 1200px;
-    padding: 20px;
-}
-
-.event-card {
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(15px);
-    overflow: hidden;
-    transition: transform 0.3s ease-in-out;
-}
-
-.event-card:hover {
-    transform: scale(1.05);
-}
-
-.event-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-
-.event-info {
-    padding: 20px;
-    text-align: center;
-}
-
-.event-info h3 {
-    color: white;
-    font-size: 22px;
-}
-
-.event-info p {
-    color: white;
-    opacity: 0.8;
-    margin: 10px 0;
-}
-
-.event-info span {
-    display: block;
-    font-size: 14px;
-    color: #ffcccb;
-    margin-top: 5px;
-}
-
 /* Responsive Design */
 @media (max-width: 768px) {
-   nav {
+    nav {
         flex-direction: column;
         align-items: center;
     }
 
     .nav-links {
-        margin-top: 10px;
+        width: 100%;
+        text-align: center;
     }
 
     .nav-links li {
@@ -153,5 +131,4 @@ body.menu-open {
     .events-container {
         grid-template-columns: 1fr;
     }
-
 }
