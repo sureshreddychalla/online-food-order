@@ -12,14 +12,15 @@
     <!-- Navigation Bar -->
     <nav>
         <div class="logo">Tasty Talks</div>
-        <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+        <button class="menu-toggle" id="menu-toggle">&#9776;</button>
         <ul class="nav-links" id="nav-links">
+            <button class="close-menu" id="close-menu">&times;</button>
             <li><a href="home.html">Home</a></li>
             <li><a href="profile.html">Profile</a></li>
             <li><a href="menu.html">Menu</a></li>
             <li><a href="reservation.html">Reservation</a></li>
        </ul>
-</nav>
+    </nav>
 
     <!-- Hero Section -->
     <header class="hero">
@@ -28,8 +29,8 @@
     </header>
 
     <!-- Events Section -->
-    <section class="events-container" onclick="window.location.href='reservation.html';">
-        <div class="event-card" >
+    <section class="events-container">
+        <div class="event-card" onclick="window.location.href='reservation.html';">
             <img src="e3.jpg" alt="Music Night">
             <div class="event-info">
                 <h3>Live Music Night</h3>
@@ -38,7 +39,7 @@
             </div>
         </div>
 
-        <div class="event-card">
+        <div class="event-card" onclick="window.location.href='reservation.html';">
             <img src="e2.jpg" alt="Comedy Show">
             <div class="event-info">
                 <h3>Comedy Show</h3>
@@ -47,7 +48,7 @@
             </div>
         </div>
 
-        <div class="event-card">
+        <div class="event-card" onclick="window.location.href='reservation.html';">
             <img src="em.jpg" alt="Wine Tasting">
             <div class="event-info">
                 <h3>Wine Tasting Event</h3>
@@ -56,40 +57,35 @@
             </div>
         </div>
     </section>
+    
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const menuToggle = document.getElementById("menu-toggle");
             const navLinks = document.getElementById("nav-links");
-        
-            if (menuToggle && navLinks) {
-                menuToggle.addEventListener("click", function () {
-                    navLinks.classList.toggle("active");
-        
-                    // Animate the menu opening & closing
-                    if (navLinks.classList.contains("active")) {
-                        navLinks.style.maxHeight = navLinks.scrollHeight + "px";
-                    } else {
-                        navLinks.style.maxHeight = "0px";
-                    }
+            const closeMenu = document.getElementById("close-menu");
+    
+            menuToggle.addEventListener("click", function () {
+                navLinks.classList.toggle("active");
+            });
+    
+            closeMenu.addEventListener("click", function () {
+                navLinks.classList.remove("active");
+            });
+    
+            // Close menu when a link is clicked (on mobile)
+            navLinks.querySelectorAll("a").forEach(link => {
+                link.addEventListener("click", function () {
+                    navLinks.classList.remove("active");
                 });
-        
-                // Close menu when a link is clicked (on mobile)
-                navLinks.querySelectorAll("a").forEach(link => {
-                    link.addEventListener("click", function () {
-                        navLinks.classList.remove("active");
-                        navLinks.style.maxHeight = "0px";
-                    });
-                });
-        
-                // Accessibility: Close menu when pressing Escape key
-                document.addEventListener("keydown", function (event) {
-                    if (event.key === "Escape" && navLinks.classList.contains("active")) {
-                        navLinks.classList.remove("active");
-                        navLinks.style.maxHeight = "0px";
-                    }
-                });
-            }
-    });
+            });
+    
+            // Accessibility: Close menu when pressing Escape key
+            document.addEventListener("keydown", function (event) {
+                if (event.key === "Escape" && navLinks.classList.contains("active")) {
+                    navLinks.classList.remove("active");
+                }
+            });
+        });
     </script>
     
 </body>
