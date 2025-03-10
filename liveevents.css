@@ -1,3 +1,26 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: url("live.jpg") center/cover no-repeat fixed;
+}
+
+/* Overlay Effect */
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    z-index: -1;
+}
 /* Ensure navigation bar covers full width */
         nav {
             width: 100%;
