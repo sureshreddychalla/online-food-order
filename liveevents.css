@@ -23,46 +23,65 @@ body {
 }
 
 /* Navigation Bar */
-nav {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
-    padding: 15px 30px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 100;
-}
-
 .logo {
     font-size: 24px;
     font-weight: bold;
     color: white;
     text-transform: uppercase;
 }
+.menu-toggle {
+    display: block;
+    font-size: 28px;
+    cursor: pointer;
+    color: white;
+}
 
 .nav-links {
     list-style: none;
+    padding: 0;
+    margin: 0;
+    background: rgba(0, 0, 0, 0.9);
+    width: 100%;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out;
+    z-index: 1000; /* Ensures menu is on top */
+}
+
+.nav-links.active {
     display: flex;
+    max-height: 300px; /* Adjust as needed */
+    padding: 10px 0;
 }
 
 .nav-links li {
-    margin: 0 15px;
+    margin: 10px 0;
 }
 
 .nav-links a {
-    text-decoration: none;
     color: white;
-    font-size: 16px;
-    transition: color 0.3s ease;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 20px;
+    display: block;
+    width: 100%;
 }
 
 .nav-links a:hover {
-    color: #333;
+    background-color: #ff6600;
 }
+
+/* Ensures content moves down instead of overlapping */
+body.menu-open {
+    padding-top: 250px; /* Adjust based on menu height */
+}
+
 
 /* Hero Section */
 .hero {
