@@ -1,134 +1,97 @@
-/* General Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
+/* Ensure navigation bar covers full width */
+        nav {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+        
+        .nav-links {
+            width: 100%;
+            flex-direction: column;
+            text-align: center;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            background: rgba(0, 0, 0, 0.95);
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-in-out;
+        }
+        
+        .nav-links.active {
+            max-height: 300px;
+            padding: 10px 0;
+        }
+        
+        .nav-links li {
+            margin: 10px 0;
+        }
+        
+        .nav-links a {
+            color: white;
+            font-size: 18px;
+            padding: 10px 20px;
+            display: block;
+        }
+        
+        .menu-toggle {
+            font-size: 28px;
+            cursor: pointer;
+            color: white;
+            background: none;
+            border: none;
+        }
 
-body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: url("live.jpg") center/cover no-repeat fixed;
-}
+        .close-menu {
+            display: block;
+            font-size: 28px;
+            color: white;
+            background: none;
+            border: none;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+        
+        /* Ensure visibility of text elements */
+        .event-info h3 {
+            font-size: 20px;
+            color: white;
+        }
 
-/* Overlay Effect */
-.overlay {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.2);
-    z-index: -1;
-}
+        .event-info p {
+            font-size: 16px;
+            color: white;
+            opacity: 0.9;
+        }
+        
+        .event-info span {
+            font-size: 14px;
+            color: #ffcccb;
+        }
 
-/* Navigation Bar */
-nav {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(0, 0, 0, 0.8);
-    padding: 15px 20px;
-    position: relative;
-}
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: center;
+            }
 
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-    color: white;
-    text-transform: uppercase;
-}
+            .nav-links {
+                text-align: center;
+            }
 
-/* Menu Toggle (Hamburger Icon) */
-.menu-toggle {
-    display: block;
-    font-size: 28px;
-    cursor: pointer;
-    color: white;
-    background: none;
-    border: none;
-    position: absolute;
-    right: 20px;
-    top: 15px;
-    z-index: 1100;
-}
+            .event-info h3 {
+                font-size: 18px;
+            }
 
-/* Navigation Links */
-.nav-links {
-    list-style: none;
-    background: rgba(0, 0, 0, 0.95);
-    width: 100%;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    overflow: hidden;
-    max-height: 0;
-    transition: max-height 0.5s ease-in-out;
-    z-index: 1000; /* Ensures menu is on top */
-}
-
-.nav-links.active {
-    display: flex;
-    max-height: 300px; /* Adjust based on menu height */
-    padding: 15px 0;
-}
-
-.nav-links li {
-    margin: 12px 0;
-}
-
-.nav-links a {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-    padding: 12px 20px;
-    display: block;
-    width: 100%;
-}
-
-.nav-links a:hover {
-    background-color: #ff6600;
-}
-
-/* Close Button (Inside the Menu) */
-.close-menu {
-    display: block;
-    font-size: 26px;
-    color: white;
-    background: none;
-    border: none;
-    cursor: pointer;
-    position: absolute;
-    top: 10px;
-    right: 20px;
-}
-
-/* Body Shift Effect */
-body.menu-open {
-    padding-top: 250px; /* Adjust based on menu height */
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    nav {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .nav-links {
-        width: 100%;
-        text-align: center;
-    }
-
-    .nav-links li {
-        margin: 5px 0;
-    }
-
-    .events-container {
-        grid-template-columns: 1fr;
-    }
-}
+            .event-info p {
+                font-size: 14px;
+            }
+        }
