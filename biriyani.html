@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biriyani Dishes</title>
+    <link rel="stylesheet" href="biryani.css">
+    <!-- <script src="../js/biriyani.js" defer></script> -->
+</head>
+<body>
+    <nav>
+        <div class="logo">Tasty Talks</div>
+        <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="veg.html">Veg</a></li>
+            <li><a href="nonveg.html">Non Veg Items</a></li>   
+            <li><a href="desserts.html">Desserts</a></li>       
+        </ul>
+    </nav>
+    <h1>Our Special Biryani Dishes</h1>
+    <a href="cart.html" class="cart-button">Go to Cart</a>
+
+    <div class="container">
+        <div class="section" data-name="Chicken Biryani" data-price="200">
+            <img src="dum biryani.jpeg" alt="Chicken Biryani">
+            <h2>Chicken Biryani</h2>
+            <p class="price">price 200</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+
+        <div class="section" data-name="Mutton Biryani" data-price="250">
+            <img src="mutton biriyani.jpg" alt="Mutton Biryani">
+            <h2>Mutton Biryani</h2>
+            <p class="price">price 250</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+
+        <div class="section" data-name="Prawn Biryani" data-price="270">
+            <img src="prawnbiryani.jpeg" alt="Prawn Biryani">
+            <h2>Prawn Biryani</h2>
+            <p class="price">price 270</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+
+        <div class="section" data-name="Fish Biryani" data-price="220">
+            <img src="fishbiryani.jpg" alt="Fish Biryani">
+            <h2>Fish Biryani</h2>
+            <p class="price">price 220</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+
+        <div class="section" data-name="Egg Biryani" data-price="180">
+            <img src="egg biryani.jpg" alt="Egg Biryani">
+            <h2>Egg Biryani</h2>
+            <p class="price">price 180</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+
+        <div class="section" data-name="Dum Biryani" data-price="260">
+            <img src="dum biryani.jpeg" alt="Dum Biryani">
+            <h2>Dum Biryani</h2>
+            <p class="price">price 260</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+
+        <div class="section" data-name="Hyderabadi Biryani" data-price="280">
+            <img src="hydbiryani.jpeg" alt="Hyderabadi Biryani">
+            <h2>Hyderabadi Biryani</h2>
+            <p class="price">price 280</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+
+        <div class="section" data-name="Veg Biryani" data-price="190">
+            <img src="vegbiryani.jpeg" alt="Veg Biryani">
+            <h2>Veg Biryani</h2>
+            <p class="price">price 190</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+
+        <div class="section" data-name="Keema Biryani" data-price="300">
+            <img src="kemma.jpeg" alt="Keema Biryani">
+            <h2>Keema Biryani</h2>
+            <p class="price">price 300</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+
+        <div class="section" data-name="Tandoori Biryani" data-price="320">
+            <img src="tandoori.jpeg" alt="Tandoori Biryani">
+            <h2>Tandoori Biryani</h2>
+            <p class="price">price 320</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+
+        <div class="section" data-name="Paneer Biryani" data-price="210">
+            <img src="Paneer Butter Masala.jpg" alt="Paneer Biryani">
+            <h2>Paneer Biryani</h2>
+            <p class="price">price 210</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+        const addToCartButtons = document.querySelectorAll(".add-to-cart");
+
+        addToCartButtons.forEach(button => {
+            button.addEventListener("click", function () {
+                const item = this.parentElement;
+                const itemName = item.getAttribute("data-name");
+                const itemPrice = parseFloat(item.getAttribute("data-price"));
+
+                let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+                let existingItem = cart.find(cartItem => cartItem.name === itemName);
+                if (existingItem) {
+                    existingItem.quantity += 1;
+                } else {
+                    cart.push({ name: itemName, price: itemPrice, quantity: 1 });
+                }
+
+                localStorage.setItem("cart", JSON.stringify(cart));
+                alert(`${itemName} added to cart!`);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

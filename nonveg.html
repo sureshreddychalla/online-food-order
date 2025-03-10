@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="nonveg.css">
+    
+    <title>Non-Veg Items</title>
+</head>
+<body>
+    <nav>
+        <div class="logo">Tasty Talks</div>
+        <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="veg.html">Veg</a></li>
+            <li><a href="nonveg.html">Non Veg Items</a></li>   
+            <li><a href="desserts.html">Desserts</a></li>       
+        </ul>
+    </nav>
+    <h1>Non-Veg Dishes</h1>
+    <a href="cart.html" class="cart-button">Go to Cart</a>
+    
+    <div class="container">
+        <div class="menu-item" onclick="window.location.href='./biriyani.html';">
+            <img src="dum biryani.jpeg" alt="Biryani">
+            <h2>Biryani Special</h2>
+            <a href="./biriyani.html" class="menu-button">View Menu</a>
+        </div>
+        <div class="section" data-name="Chicken Biryani" data-price="200">
+            <img src="dum biryani.jpeg" alt="Chicken Biryani">
+            <h2>Chicken Biryani</h2>
+            <p class="price">price 200</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+
+        <div class="section" data-name="Mutton Curry" data-price="250">
+            <img src="mutton.jpeg" alt="Mutton Curry">
+            <h2>Mutton Curry</h2>
+            <p class="price">price 250</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+
+        <div class="section" data-name="Butter Chicken" data-price="220">
+            <img src="butterchicken.jpg" alt="Butter Chicken">
+            <h2>Butter Chicken</h2>
+            <p class="price">price 220</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+
+        <div class="section" data-name="Fish Fry" data-price="180">
+            <img src="fish pakora.jpeg" alt="Fish Fry">
+            <h2>Fish Fry</h2>
+            <p class="price">price 180</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+
+        <div class="section" data-name="Prawn Masala" data-price="270">
+            <img src="prawnmasala.jpg" alt="Prawn Masala">
+            <h2>Prawn Masala</h2>
+            <p class="price">price 270</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+
+        <div class="section" data-name="Chicken 65" data-price="190">
+            <img src="chicken 65.jpg" alt="Chicken 65">
+            <h2>Chicken 65</h2>
+            <p class="price">price 190</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>    
+
+        <div class="section" data-name="Egg Curry" data-price="150">
+            <img src="eggcurry.jpeg" alt="Egg Curry">
+            <h2>Egg Curry</h2>
+            <p class="price">price 150</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+
+        <div class="section" data-name="Chicken Tandoori" data-price="230">
+            <img src="chickentandoori.jpg" alt="Chicken Tandoori">
+            <h2>Chicken Tandoori</h2>
+            <p class="price">price 230</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+
+        <div class="section" data-name="Crab Curry" data-price="280">
+            <img src="crabcurry.jpg" alt="Crab Curry">
+            <h2>Crab Curry</h2>
+            <p class="price">price 280</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+
+        <div class="section" data-name="Duck Roast" data-price="300">
+            <img src="duck.jpg" alt="Duck Roast">
+            <h2>Duck Roast</h2>
+            <p class="price">price 300</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+
+        <div class="section" data-name="Grilled Lamb" data-price="320">
+            <img src="grilledlamb.jpg" alt="Grilled Lamb">
+            <h2>Grilled Lamb</h2>
+            <p class="price">price 320</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+        const addToCartButtons = document.querySelectorAll(".add-to-cart");
+
+        addToCartButtons.forEach(button => {
+            button.addEventListener("click", function () {
+                const item = this.parentElement;
+                const itemName = item.getAttribute("data-name");
+                const itemPrice = parseFloat(item.getAttribute("data-price"));
+
+                let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+                let existingItem = cart.find(cartItem => cartItem.name === itemName);
+                if (existingItem) {
+                    existingItem.quantity += 1;
+                } else {
+                    cart.push({ name: itemName, price: itemPrice, quantity: 1 });
+                }
+
+                localStorage.setItem("cart", JSON.stringify(cart));
+                alert(`${itemName} added to cart!`);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
