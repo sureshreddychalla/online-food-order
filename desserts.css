@@ -206,39 +206,60 @@ button:hover {
 /* Responsive Design */
 @media (max-width: 768px) {
     /* Mobile Navigation */
-    .menu-toggle {
-        display: block;
-    }
-
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        background: rgba(0, 0, 0, 0.9);
-        position: absolute;
-        top: 60px;
-        left: 0;
-        text-align: center;
-        padding: 15px 0;
-    }
-
-    .nav-links li {
-        margin: 10px 0;
-    }
-
-    .nav-links.active {
-        display: flex;
-        animation: fadeIn 0.5s ease-in-out;
-    }
-    .container {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    }
-    
-    .cart-button {
-        font-size: 14px;
-        padding: 8px 16px;
-    }
+    /* Mobile Menu */
+.menu-toggle {
+    display: block;
+    font-size: 28px;
+    cursor: pointer;
+    color: white;
 }
+
+.nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background: rgba(0, 0, 0, 0.9);
+    width: 100%;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out;
+    z-index: 1000; /* Ensures menu is on top */
+}
+
+.nav-links.active {
+    display: flex;
+    max-height: 300px; /* Adjust as needed */
+    padding: 10px 0;
+}
+
+.nav-links li {
+    margin: 10px 0;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 20px;
+    display: block;
+    width: 100%;
+}
+
+.nav-links a:hover {
+    background-color: #ff6600;
+}
+
+/* Ensures content moves down instead of overlapping */
+body.menu-open {
+    padding-top: 250px; /* Adjust based on menu height */
+}
+
 
 /* Heading */
 h1 {
