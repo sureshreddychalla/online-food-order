@@ -16,6 +16,7 @@ nav {
     background-color: #ff6600;
     padding: 15px 30px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
 }
 
 .logo {
@@ -25,6 +26,15 @@ nav {
     cursor: pointer;
 }
 
+/* Hamburger Menu */
+.menu-toggle {
+    display: none;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+/* Navigation Links */
 .nav-links {
     list-style: none;
     padding: 0;
@@ -49,30 +59,31 @@ nav {
     text-decoration: underline;
 }
 
-/* Heading */
+/* Main Heading */
 h1 {
     color: #333;
     margin: 20px 0;
     animation: fadeInDown 1s ease-in-out;
 }
-/* pricing */
+
+/* Pricing */
 .price {
-    font-size: 20px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    font-weight: bold;
     color: #ff6600;
     background-color: #fff5e6;
     padding: 8px 12px;
     border-radius: 8px;
     display: inline-block;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-    animation: popUp 0.8s ease-in-out;
 }
+
 /* Cart Button */
 .cart-button {
     display: inline-block;
     background-color: #ff6600;
     color: white;
-    padding: 10px 20px;
+    padding: 12px 22px;
     font-size: 16px;
     font-weight: bold;
     text-decoration: none;
@@ -103,13 +114,14 @@ h1 {
     padding: 15px;
     border-radius: 10px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     opacity: 0;
     animation: slideUp 1s ease-in-out forwards;
 }
 
 .section:hover {
     transform: translateY(-5px);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 /* Images */
@@ -132,19 +144,6 @@ h2 {
     margin: 10px 0;
 }
 
-/* Prices */
-.price {
-    font-size: 20px;
-    font-family: Arial, Helvetica, sans-serif;
-    color: #ff6600;
-    background-color: #fff5e6;
-    padding: 8px 12px;
-    border-radius: 8px;
-    display: inline-block;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-    animation: popUp 0.8s ease-in-out;
-}
-
 /* Buttons */
 button {
     background-color: #ff6600;
@@ -164,45 +163,18 @@ button:hover {
 
 /* Animations */
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 @keyframes fadeInDown {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes slideUp {
-    from {
-        opacity: 0;
-        transform: translateY(50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes popUp {
-    0% {
-        transform: scale(0.8);
-        opacity: 0;
-    }
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
+    from { opacity: 0; transform: translateY(50px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 /* Responsive Design */
@@ -222,20 +194,30 @@ button:hover {
         left: 0;
         text-align: center;
         padding: 15px 0;
-    }
-
-    .nav-links li {
-        margin: 10px 0;
+        border-radius: 0 0 10px 10px;
     }
 
     .nav-links.active {
         display: flex;
         animation: fadeIn 0.5s ease-in-out;
     }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+    .nav-links a {
+        font-size: 18px;
+        padding: 10px;
+        display: block;
+        color: white;
+        text-decoration: none;
+    }
+
     .container {
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
-    
+
     .cart-button {
         font-size: 14px;
         padding: 8px 16px;
